@@ -9,7 +9,6 @@ const {
 } = webpack;
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const ReactLoadablePlugin = require('@7rulnik/react-loadable/webpack').ReactLoadablePlugin;
 
 
 const create = ( root = process.cwd() ) => ( {
@@ -33,10 +32,6 @@ const create = ( root = process.cwd() ) => ( {
         extensions: [ ".ts", ".tsx", ".js", ".css", ".json", ".svg" ],
         modules: [ "node_modules" ],
         alias: {
-            'react-loadable':'@7rulnik/react-loadable',
-
-
-            /** part of definitions is in base dev config */
         }
     },
     externals: {},
@@ -94,11 +89,6 @@ const create = ( root = process.cwd() ) => ( {
         ]
     },
     plugins: [
-        // new DllReferencePlugin({
-        //     context: path.join(root, 'dest'),
-        //     manifest: require('../../dest/root.dll.manifest.json'),
-        //     sourceType: 'umd2',
-        // }),
         new DefinePlugin( {
             'process.env': {
                 NODE_ENV: JSON.stringify( 'development' )
@@ -109,11 +99,6 @@ const create = ( root = process.cwd() ) => ( {
             filename: "[name].css",
             chunkFilename: "[id].css"
         } ),
-        // new ReactLoadablePlugin({
-        //     filename:path.join(root,'dest','loadable.manifest.json')
-        // }),
-
-
     ]
 } );
 
