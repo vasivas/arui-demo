@@ -21,7 +21,6 @@ const create = ( root = process.cwd() ) => ( {
         client: path.join( root, 'src', 'index.tsx' )
     },
     output: {
-        publicPath: "/static/",
         path: path.join( root, 'dest' ),
         filename: '[name].js',
         chunkFilename: "[name].js",
@@ -40,7 +39,6 @@ const create = ( root = process.cwd() ) => ( {
         fs: 'empty'
     },
     module: {
-        noParse: /\.json$/,
         rules: [
             {
                 test: /\.css$/,
@@ -51,7 +49,7 @@ const create = ( root = process.cwd() ) => ( {
                         options: {
                             sourceMap: true,
                         }
-                        },
+                    },
                 ],
                 include:[path.join(root,'node_modules','arui-feather')]
             },
@@ -68,20 +66,13 @@ const create = ( root = process.cwd() ) => ( {
                 exclude: [ /node_modules/, /\*\.spec.(ts|tsx)$/ ]
             },
             {
-                test: /\.json$/,
-                use: 'json-loader',
-                include:[path.join(root,'dest')],
-                exclude: [ /node_modules/ ]
-            },
-            {
                 test:/\.svg$/,
                 use:[
                     // {loader:'svg-loader'},
                     {
                         loader:'file-loader',
                         options:{
-                            name: '[name].[ext]',
-                            publicPath: 'static/'
+                            name: '[name].[ext]'
                         }
                     },
                 ]
@@ -103,4 +94,4 @@ const create = ( root = process.cwd() ) => ( {
 } );
 
 
-module.exports = create()
+module.exports = create();
