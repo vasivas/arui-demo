@@ -1,6 +1,30 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+
+
+    "allowSyntheticDefaultImports": true,
+
+    "noEmit": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
+
+    "module": "esnext",
+    "target": "es2015",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "baseUrl": ".",
+
+    "skipLibCheck": true,
+
+    "removeComments": false,
+
+
     "lib": [
       "es2015",
       "es2016.array.include",
@@ -11,35 +35,15 @@
       "tslib"
     ],
     "typeRoots": [
-      "../../node_modules/@types",
-      "../../types"
+      "./node_modules/@types",
+      "./types"
     ],
     "paths": {
     },
-
-    "target": "es2015",
-    "module": "esnext",
-     "allowJs": true,
-     "checkJs": false,
-    "skipLibCheck":true,
-     "jsx": "react",
-     "sourceMap": true,
-     "removeComments": false,
-     "noEmit": true,
-    "noEmitHelpers":true,
-     "importHelpers": true,
-
-
-    "noImplicitAny": false,
-    "noEmitOnError":true,
-     "moduleResolution": "node",
-     "baseUrl": ".",
-     "allowSyntheticDefaultImports": true,
-
-
-     "experimentalDecorators": true,
-     "emitDecoratorMetadata": true
+    "jsx": "react"
   },
+  "files": [
+  ],
   "include": [
     "src/**/*.tsx",
     "src/**/*.ts"
